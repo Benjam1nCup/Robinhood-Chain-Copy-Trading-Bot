@@ -1,0 +1,83 @@
+# Robinhood Chain Copy Trading Bot — defaults.
+# Secrets belong in .env. Docs: https://docs.robinhood.com/
+
+bot:
+  dry_run: true
+  paper_trading: true
+  paper_starting_usdg: 5000
+  paper_fee_bps: 5
+  log_level: INFO
+  log_file: logs/copybot.log
+  log_timestamp_name: true
+  heartbeat_s: 30
+  stop_trading: false
+
+chain:
+  chain_id: 4663
+  rpc_url: https://rpc.mainnet.chain.robinhood.com
+  ws_url: ""
+  sequencer_feed: wss://feed.mainnet.chain.robinhood.com
+  request_timeout_s: 20
+  poll_blocks_s: 2.0
+  data_streams_verifier: "0xcE73c8ad08CBDEaCa6078BF0627C8fe0a9a536E7"
+
+stock_tokens:
+  assets_url: https://api.robinhood.com/rhj/assets
+  prices_url: https://api.robinhood.com/rhj/prices
+  corporate_actions_url: https://api.robinhood.com/rhj/corporate-actions
+  refresh_interval_s: 300
+
+uniswap:
+  v3_factory: "0x1f7d7550B1b028f7571E69A784071F0205FD2EfA"
+  swap_router_02: "0xCaf681a66D020601342297493863E78C959E5cb2"
+  quoter_v2: "0x33e885eD0Ec9bF04EcfB19341582aADCb4c8A9E7"
+  universal_router: "0x8876789976dEcBfCbBbe364623C63652db8C0904"
+  permit2: "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+  weth: "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73"
+  usdg: "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"
+  fee_tiers: [100, 500, 3000, 10000]
+
+zerox:
+  enabled: true
+  base_url: https://api.0x.org
+  quote_path: /swap/allowance-holder/quote
+  price_path: /swap/allowance-holder/price
+
+copy:
+  # proportional | fixed | hybrid
+  sizing_mode: hybrid
+  copy_ratio: 0.10
+  fixed_size_usd: 100
+  max_position_usd: 500
+  min_position_usd: 10
+  max_trade_age_s: 30
+  max_slippage_bps: 100
+  min_liquidity_usd: 50000
+  max_liquidity_ratio: 0.05
+  require_official_token: false
+  copy_exits: true
+  only_swaps: true
+  min_gas_balance_eth: 0.001
+  max_daily_loss_usd: 250
+  max_token_exposure_usd: 1000
+  token_blacklist: []
+  router_whitelist: []
+
+risk:
+  reject_trading_halt: true
+  reject_unknown_tokens: false
+  min_wallet_score: 40
+  emergency_stop_file: data/STOP
+
+execution:
+  gas_limit: 400000
+  tx_confirm_timeout_s: 90
+  approve_once: true
+  prefer_zerox_for_official: true
+
+monitor:
+  mode: blocks
+  start_block: latest
+  max_receipt_retries: 3
+
+wallets_file: config/wallets.json

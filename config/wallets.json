@@ -1,0 +1,12 @@
+{
+  "wallets": [
+    {
+      "address": "0x0000000000000000000000000000000000000001",
+      "enabled": false,
+      "label": "example-wallet",
+      "max_position_usd": 500,
+      "copy_ratio": 0.10,
+      "score": 75
+    }
+  ]
+}
