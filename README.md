@@ -2,6 +2,12 @@
 
 Automatically monitor target wallets on [Robinhood Chain](https://docs.robinhood.com/chain/), detect DEX swaps, apply risk rules, and execute proportional copy trades from your own wallet.
 
+
+If you want other types of Robin Hood chain bots, you can find other bots in this repository.
+
+[https://github.com/Benjam1nCup/Robinhood-Trading-Bot-System](https://github.com/Benjam1nCup/Robinhood-Trading-Bot-System)
+
+
 ## Architecture
 
 ```text
